@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+}
+p, h1, h2, h3, h4, h5, h6{
+    font-size: 1em;
+}
+
+body h1 {
+    text-align: center;
+    font-size: 2em;
+}
+.weekly__spending {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5px;
+}
+
+.weekly__spending .weekdays{
+    justify-content: center;
+    align-items: center;
+    border: 2px #000000 solid;
+    border-radius: 10px;
+    padding: 1em 0.8rem;
+    margin: 0.4em auto;
+    cursor: pointer;
+}
+
+.weekdays h3{
+    text-align: center;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+.weekdays .spending{
+    margin: 0.4em 0;
+    padding: 3px 7px;
+    height: 100%;
+    max-height: 300px;
+    width: 70%;
+} 
+
+.weekdays .cost-reduce {
+    margin: 0.4em 0 0.7em 0;
+    padding: 3px 7px;
+    height: 100%;
+    width: 70%;
+}
