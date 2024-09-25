@@ -5,9 +5,16 @@ p, h1, h2, h3, h4, h5, h6{
     font-size: 1em;
 }
 
+body {
+    font-family: "Indie Flower", cursive;
+}
+
 body h1 {
     text-align: center;
     font-size: 2em;
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 .weekly__spending {
     margin: 20px;
@@ -19,11 +26,23 @@ body h1 {
 .weekly__spending .weekdays{
     justify-content: center;
     align-items: center;
-    border: 2px #000000 solid;
+    border: 1px #000000 solid;
     border-radius: 10px;
     padding: 1em 0.8rem;
     margin: 0.4em auto;
     cursor: pointer;
+}
+
+.weekly__spending input, button{
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+}
+
+.weekly__spending button {
+    color: #ffff;
+    background-color: #242121;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
 }
 
 .weekdays h3{
@@ -45,4 +64,41 @@ body h1 {
     padding: 3px 7px;
     height: 100%;
     width: 70%;
+}
+
+.daily__spending p{
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 100px;
+    height: 20px;
+    margin-top: 0.7rem;
+    padding: 0.33rem 0.4rem;
+
+}
+
+/* weekly avg sec */
+
+
+/* bigger screens*/
+
+@media (min-width: 720px){
+    body{
+        font-size: 17px;
+    }
+
+    .weekly__spending {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media (min-width: 960px){
+    body {
+            font-size: 19px;
+        }
+    .weekly__spending .weekdays {
+        padding: 1em 0.8rem;
+        margin: 0.5rem 1rem ;
+    }
 }
