@@ -43,6 +43,7 @@ body h1 {
     background-color: #242121;
     border-radius: 5px;
     padding: 0.3rem 0.5rem;
+    cursor: pointer;
 }
 
 .weekdays h3{
