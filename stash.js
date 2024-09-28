@@ -7,33 +7,46 @@ const dailyTotal = document.querySelectorAll('.daily-total');
 
 const totalSpentDaily = document.querySelectorAll('.what___i__spent__daily');
 
-const costHolder = document.querySelector('.cost');
-const itemHolder = document.querySelector('.items');
+// const costHolder = document.querySelector('.cost');
+// const itemHolder = document.querySelector('.items');
+
+const genItemContainer = document.querySelector('.weekdays-container')
 
 
 addElement.addEventListener  ('click', function(){
-
-    const innerItems = document.createElement('p');
-    innerItems.innerText = 'item bought';
-
-    const innerItemInput = document.createElement('input');
-    innerItemInput.className = 'spending';
+    const itemAddition = document.createElement('div');
 
     
-    //   
-    const innerCost = document.createElement('div');
-    innerCost.innerText = 'cost';
+    const insideOfItemAddition = document.createElement ('p');
+    insideOfItemAddition.innerText = 'item bought';
     
-    const innerCostInput = document.createElement('input');
-    innerCostInput.className = 'cost-reduce';
+    const spending = document.createElement('input');
+    spending.type = 'text';
+    spending.className = 'spending';
+    
+    itemAddition.appendChild(insideOfItemAddition);
+    itemAddition.appendChild(spending);
+    
+    genItemContainer.appendChild(itemAddition);
+    
+    // Cost textarea
 
-    itemHolder.appendChild(innerItems);
-    itemHolder.appendChild (innerItemInput);
+    const costAddition = document.createElement('div');
     
+    const insideOfCost = document.createElement ('p');
+    insideOfCost.innerText = 'cost';
     
-    costHolder.appendChild(innerCost);
-    costHolder.appendChild (innerCostInput);
-    
-})
+    const costReduce = document.createElement('input');
+    costReduce.type = 'text';
+    costReduce.className = 'cost-reduce';
+
+    costAddition.appendChild(insideOfCost);
+    costAddition.appendChild(costReduce);
+
+    genItemContainer.appendChild(costAddition);
+
+
+
+});
 
 
