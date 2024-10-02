@@ -1,52 +1,73 @@
 
-const itemsBought = document.querySelector('.spending');
-const costOfGoods = document.querySelector('.cost-reduce');
+const itemAddBtns = document.querySelectorAll('.add-items');
 
-const addElement = document.querySelector('.add-items');
-const dailyTotal = document.querySelectorAll('.daily-total');
+const clearBtns = document.querySelectorAll('.clear__all');
 
-const totalSpentDaily = document.querySelectorAll('.what___i__spent__daily');
+//ADD MORE BUTTON FUNCTION
 
-// const costHolder = document.querySelector('.cost');
-// const itemHolder = document.querySelector('.items');
+itemAddBtns.forEach(itemAddBtn => {
+    itemAddBtn.addEventListener('click', () => {
 
-const genItemContainer = document.querySelector('.weekdays-container')
+        const eachDayContainer = itemAddBtn.closest('.weekdays-container');
+            
+        const eachDayItems = document.createElement('div');
+        eachDayItems.className = 'items';
 
+        const newItems = document.createElement('p');
+        newItems.innerText = 'item bought';
 
-addElement.addEventListener  ('click', function(){
-    const itemAddition = document.createElement('div');
+        const newInputs = document.createElement('input');
+        newInputs.type = 'text';
+        newInputs.className = 'spending';
 
-    
-    const insideOfItemAddition = document.createElement ('p');
-    insideOfItemAddition.innerText = 'item bought';
-    
-    const spending = document.createElement('input');
-    spending.type = 'text';
-    spending.className = 'spending';
-    
-    itemAddition.appendChild(insideOfItemAddition);
-    itemAddition.appendChild(spending);
-    
-    genItemContainer.appendChild(itemAddition);
-    
-    // Cost textarea
+        eachDayItems.appendChild(newItems);
+        eachDayItems.appendChild(newInputs);
 
-    const costAddition = document.createElement('div');
-    
-    const insideOfCost = document.createElement ('p');
-    insideOfCost.innerText = 'cost';
-    
-    const costReduce = document.createElement('input');
-    costReduce.type = 'text';
-    costReduce.className = 'cost-reduce';
+        eachDayContainer.insertBefore(eachDayItems, itemAddBtn);
+        
+        //--- COST SECTION ---
 
-    costAddition.appendChild(insideOfCost);
-    costAddition.appendChild(costReduce);
+        const eachDayCosts = document.createElement('div');
+        eachDayCosts.className = 'costs';
 
-    genItemContainer.appendChild(costAddition);
+        const costHeading = document.createElement('p');
+        costHeading.innerText = 'Cost';
 
+        const expensesInput =  document.createElement('input');
+        expensesInput.className = 'cost-reduce';
+        expensesInput.type = 'text';
 
+        eachDayCosts.appendChild(costHeading);
+        eachDayCosts.appendChild(expensesInput);
 
+        eachDayContainer.insertBefore(eachDayCosts, itemAddBtn);
+        
+    });
 });
+
+
+// CLEAR BUTTON 
+
+
+clearBtns.forEach(clearBtn => {
+    clearBtn.addEventListener('click', () => {
+        const itemsToRemove = 2;
+
+        let itemNcostContainer = document.querySelectorAll('.items-container');
+        if(itemNcostContainer.length > 2){
+           for(let i = 0; i < itemsToRemove; i++){
+            if(itemNcostContainer.length > 2){
+                itemNcostContainer[itemNcostContainer.length - 1].remove();
+
+                itemNcostContainer = document.querySelectorAll('.items-container');
+            };
+           };
+        };
+    });
+});
+
+
+
+
 
 
