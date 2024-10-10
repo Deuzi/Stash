@@ -42,11 +42,40 @@ itemAddBtns.forEach((itemAddBtn) => {
   });
 });
 
+//DAILY TOTAL BUTTON FUNCTION
+
+const totalBtns = document.querySelectorAll('.daily-total');
+
+totalBtns.forEach((totalBtn) => {
+  totalBtn.addEventListener('click', () => {
+    //DAILY TOTAL BUTTON CALCULATE
+    const container = totalBtn.closest('.weekdays');
+
+    let costForTheDay = container.querySelectorAll('.cost-reduce');
+
+    let costArray = Array.from(costForTheDay).map((cost) => {
+      return parseFloat(cost.value || 0);
+    });
+
+    //Reduce all the numbers for each day
+
+    let sum = costArray.reduce((acc, input) => {
+      return acc + input;
+    }, 0);
+
+    const displayTotal = container.querySelectorAll('.what___i__spent__daily');
+
+    displayTotal.forEach((display) => {
+      display.textContent = `$ ${sum}`;
+    });
+  });
+});
+
 // CLEAR BUTTON
 
 clearBtns.forEach((clearBtn) => {
   clearBtn.addEventListener('click', () => {
-    const container = clearBtn.closest('.weekdays-container');
+    const container = clearBtn.closest('.weekdays');
 
     let itemsHolder = container.querySelectorAll('.items');
     let costHolder = container.querySelectorAll('.cost');
@@ -77,34 +106,27 @@ clearBtns.forEach((clearBtn) => {
         costHolder = container.querySelectorAll('.cost');
       }
     }
-  });
-});
 
-//BUTTON FUNCTION
+    //Removing the sums and data input when clear btn is clicked
 
-const totalBtns = document.querySelectorAll('.daily-total');
-
-totalBtns.forEach((totalBtn) => {
-  totalBtn.addEventListener('click', () => {
-    //DAILY TOTAL BUTTON CALCULATE
-    const container = totalBtn.closest('.weekdays');
-
-    let costForTheDay = container.querySelectorAll('.cost-reduce');
-
-    let costArray = Array.from(costForTheDay).map((cost) => {
-      return parseFloat(cost.value || 0);
+    const inputFields = container.querySelectorAll('.cost-reduce');
+    inputFields.forEach((inputField) => {
+      inputField.value = '';
     });
 
-    //Reduce all the numbers for each day
-
-    let sum = costArray.reduce((acc, input) => {
-      return acc + input;
-    }, 0);
+    const itemInputFields = container.querySelectorAll('.spending');
+    itemInputFields.forEach((itemInputField) => {
+      itemInputField.value = '';
+    });
 
     const displayTotal = container.querySelectorAll('.what___i__spent__daily');
 
-    displayTotal.forEach((display) => {
-      display.textContent = `$ ${sum}`;
-    });
+    if (displayTotal.length > 0) {
+      displayTotal.forEach((display) => {
+        display.textContent = '';
+      });
+    }
   });
 });
+
+//WEEKLY TOTAL DISPLAY
