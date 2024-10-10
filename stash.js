@@ -79,3 +79,32 @@ clearBtns.forEach((clearBtn) => {
     }
   });
 });
+
+//BUTTON FUNCTION
+
+const totalBtns = document.querySelectorAll('.daily-total');
+
+totalBtns.forEach((totalBtn) => {
+  totalBtn.addEventListener('click', () => {
+    //DAILY TOTAL BUTTON CALCULATE
+    const container = totalBtn.closest('.weekdays');
+
+    let costForTheDay = container.querySelectorAll('.cost-reduce');
+
+    let costArray = Array.from(costForTheDay).map((cost) => {
+      return parseFloat(cost.value || 0);
+    });
+
+    //Reduce all the numbers for each day
+
+    let sum = costArray.reduce((acc, input) => {
+      return acc + input;
+    }, 0);
+
+    const displayTotal = container.querySelectorAll('.what___i__spent__daily');
+
+    displayTotal.forEach((display) => {
+      display.textContent = `$ ${sum}`;
+    });
+  });
+});
