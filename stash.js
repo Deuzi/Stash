@@ -130,3 +130,27 @@ clearBtns.forEach((clearBtn) => {
 });
 
 //WEEKLY TOTAL DISPLAY
+
+const weeklyTotalBtn = document.getElementById('weekly-total-btn');
+
+weeklyTotalBtn.addEventListener('click', () => {
+  const totalDisplay = document.getElementById('spend__display');
+
+  let eachDailyTotal = document.querySelectorAll('.what___i__spent__daily');
+
+  let eachDay = Array.from(eachDailyTotal).map((total) => {
+    let cleanText = total.textContent.replace('$', '').trim();
+    let parsedValue = parseFloat(cleanText);
+
+    return parsedValue || 0;
+  });
+
+  const reducedTotal = eachDay.reduce((acc, input) => {
+    return acc + input;
+  }, 0);
+
+  totalDisplay.style.textAlign = 'center';
+  totalDisplay.style.padding = 'auto';
+  totalDisplay.style.color = 'green';
+  totalDisplay.textContent = `You spent $ ${reducedTotal} this week`;
+});
