@@ -154,3 +154,29 @@ weeklyTotalBtn.addEventListener('click', () => {
   totalDisplay.style.color = 'green';
   totalDisplay.textContent = `You spent $ ${reducedTotal} this week`;
 });
+
+//FULL SCREEN DISPLAY
+
+const daysOfTheWeek = document.querySelectorAll('.weekdays');
+
+daysOfTheWeek.forEach((day) => {
+  day.addEventListener('click', (event) => {
+    daysOfTheWeek.forEach((otherDay) => {
+      if (otherDay !== day) {
+        otherDay.classList.add('hidden');
+      }
+    });
+    day.classList.add('fullscreen');
+  });
+
+  const cancelBtn = day.querySelector('.cancel-btn');
+  cancelBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
+
+    daysOfTheWeek.forEach((otherDay) => {
+      otherDay.classList.remove('hidden');
+    });
+
+    day.classList.remove('fullscreen');
+  });
+});
