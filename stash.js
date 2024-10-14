@@ -123,7 +123,7 @@ clearBtns.forEach((clearBtn) => {
 
     if (displayTotal.length > 0) {
       displayTotal.forEach((display) => {
-        display.textContent = '';
+        display.textContent = '$';
       });
     }
   });
@@ -158,7 +158,6 @@ weeklyTotalBtn.addEventListener('click', () => {
 
 const daysOfTheWeek = document.querySelectorAll('.weekdays');
 const weekTotalSection = document.querySelector('.total__spend');
-const spendPerDay = document.querySelectorAll('.what___i__spent__daily');
 const mainContainer = document.getElementById('weekly__spending');
 
 daysOfTheWeek.forEach((day) => {
@@ -171,7 +170,6 @@ daysOfTheWeek.forEach((day) => {
     weekTotalSection.classList.add('hidden');
 
     mainContainer.style.margin = 'auto';
-    mainContainer.style.overflowX = 'hidden';
     mainContainer.classList.add('fullscreen');
     // spendPerDay.forEach((spend) => {
     //   spend.classList.add('center');
