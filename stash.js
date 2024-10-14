@@ -150,14 +150,16 @@ weeklyTotalBtn.addEventListener('click', () => {
   }, 0);
 
   totalDisplay.style.textAlign = 'center';
-  totalDisplay.style.padding = 'auto';
-  totalDisplay.style.color = 'green';
+  totalDisplay.style.color = '#4fe74f';
   totalDisplay.textContent = `You spent $ ${reducedTotal} this week`;
 });
 
 //FULL SCREEN DISPLAY
 
 const daysOfTheWeek = document.querySelectorAll('.weekdays');
+const weekTotalSection = document.querySelector('.total__spend');
+const spendPerDay = document.querySelectorAll('.what___i__spent__daily');
+const mainContainer = document.getElementById('weekly__spending');
 
 daysOfTheWeek.forEach((day) => {
   day.addEventListener('click', (event) => {
@@ -166,7 +168,14 @@ daysOfTheWeek.forEach((day) => {
         otherDay.classList.add('hidden');
       }
     });
-    day.classList.add('fullscreen');
+    weekTotalSection.classList.add('hidden');
+
+    mainContainer.style.margin = 'auto';
+    mainContainer.style.overflowX = 'hidden';
+    mainContainer.classList.add('fullscreen');
+    // spendPerDay.forEach((spend) => {
+    //   spend.classList.add('center');
+    // });
   });
 
   const cancelBtn = day.querySelector('.cancel-btn');
@@ -177,6 +186,7 @@ daysOfTheWeek.forEach((day) => {
       otherDay.classList.remove('hidden');
     });
 
-    day.classList.remove('fullscreen');
+    mainContainer.classList.remove('fullscreen');
+    weekTotalSection.classList.remove('hidden');
   });
 });

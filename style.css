@@ -9,21 +9,22 @@ body {
     font-family: "Indie Flower", cursive;
 }
 
-body h1 {
+#weekly__spending h1 {
     text-align: center;
     font-size: 2em;
     font-family: "Shadows Into Light", cursive;
     font-weight: 400;
     font-style: normal;
+    margin: 1rem auto;
 }
-.weekly__spending {
+#weekly__spending {
     margin: 20px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 5px;
 }
 
-.weekly__spending .weekdays{
+#weekly__spending .weekdays{
     justify-content: center;
     align-items: center;
     border: 1px #000000 solid;
@@ -33,15 +34,19 @@ body h1 {
     cursor: pointer; 
     height: max-content;
 }
-.fullscreen {
-    width: 90vw;
-    height: 100vh;
-    background-color: #ebeaea;
-    color: #000000;
-    z-index: 1;
-    text-align: center;
-}
 
+/* FOR JAVASCRIPT CLASSLIST */
+
+.fullscreen {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    color: #000000;
+}
+/* .center {
+    display: block;
+    margin: auto;
+} */
 .hidden {
     display: none;
 }
@@ -52,12 +57,15 @@ body h1 {
     height: 20px;
     cursor: pointer;
 }
-.weekly__spending input, button{
+input {
+    font-size: 1rem;
+}
+#weekly__spending input, button{
     font-family: "Indie Flower", cursive;
     font-weight: bold;
 }
 
-.weekly__spending button {
+#weekly__spending button {
     color: #ffff;
     background-color: #242121;
     border-radius: 5px;
@@ -86,24 +94,30 @@ body h1 {
     width: 70%;
 }
 
-.daily__spending p{
+.daily__spending .what___i__spent__daily{
     border: 1px solid #000000;
     border-radius: 5px;
     width: 100px;
     height: 20px;
     margin-top: 0.7rem;
     padding: 0.33rem 0.4rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4fe74f;
 
 }
+
 
 /* weekly avg sec */
 
 .total__spend #spend__display{
-    width: 200px;
-    height: 50px;
+    max-width: max-content;
+    max-height: max-content;
+    padding: 1.5rem ;
     border: 1.5px solid #242121;
     border-radius: 10px;
     margin: 1rem auto;
+    font-weight: bold;
 
 }
 #weekly__display__container #weekly-total-btn{
