@@ -157,9 +157,9 @@ weeklyTotalBtn.addEventListener('click', () => {
   let comments = document.getElementById('comment');
 
   suggestion.addEventListener('click', () => {
-    if (reducedTotal > 5000) {
+    if (reducedTotal > 1000) {
       comments.innerHTML =
-        'Hey you spent over $5,000 this week if you want to learn how to manage your spending the article might help <a href = "https://bettermoneyhabits.bankofamerica.com/en/saving-budgeting/ways-to-save-money" target = "_blank">Click</a> ';
+        'Hey you spent over $1,000 this week if you want to learn how to manage your spending the article might help <a href = "https://bettermoneyhabits.bankofamerica.com/en/saving-budgeting/ways-to-save-money" target = "_blank">Click</a> ';
       comments.style.padding = '0.5rem 0.75rem';
       comments.style.backgroundColor = '#242121';
       comments.style.borderRadius = '10px';
