@@ -152,6 +152,26 @@ weeklyTotalBtn.addEventListener('click', () => {
   totalDisplay.style.textAlign = 'center';
   totalDisplay.style.color = '#4fe74f';
   totalDisplay.textContent = `You spent $ ${reducedTotal} this week`;
+
+  const suggestion = document.getElementById('suggestion');
+  let comments = document.getElementById('comment');
+
+  suggestion.addEventListener('click', () => {
+    if (reducedTotal > 5000) {
+      comments.innerHTML =
+        'Hey you spent over $5,000 this week if you want to learn how to manage your spending the article might help <a href = "https://bettermoneyhabits.bankofamerica.com/en/saving-budgeting/ways-to-save-money" target = "_blank">Click</a> ';
+      comments.style.padding = '0.5rem 0.75rem';
+      comments.style.backgroundColor = '#242121';
+      comments.style.borderRadius = '10px';
+      comments.style.color = '#ffff';
+    } else {
+      comments.textContent = 'Your spending habits is quiet good ';
+      comments.style.padding = '0.5rem 0.75rem';
+      comments.style.backgroundColor = '#242121';
+      comments.style.borderRadius = '10px';
+      comments.style.color = '#ffff';
+    }
+  });
 });
 
 //FULL SCREEN DISPLAY
@@ -188,3 +208,5 @@ daysOfTheWeek.forEach((day) => {
     weekTotalSection.classList.remove('hidden');
   });
 });
+
+//....SEE MORE SECTION
