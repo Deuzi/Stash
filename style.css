@@ -145,9 +145,7 @@ input {
 }
 
 
-.seeMore{
-    cursor: pointer;
-}
+
 /* bigger screens*/
 
 @media (min-width: 720px){
