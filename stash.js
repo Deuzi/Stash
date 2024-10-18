@@ -208,5 +208,3 @@ daysOfTheWeek.forEach((day) => {
     weekTotalSection.classList.remove('hidden');
   });
 });
-
-//....SEE MORE SECTION
